@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "从零开始学习Javascript"
+title:      "从零开始学习Javascript-01"
 subtitle:   "为什么要重新学js？不用问，问就是遇到瓶颈了"
 date:       2019-12-01 21:42PM
 author:     "hdh"
@@ -47,14 +47,52 @@ added; // ['A', 'B', 'C', 1, 2, 3]
 
 join();//用指定的字符串拼接。join('-');  
 
+**对象**  
+对象大概就是这样一个键值得结构：  
+>var xiaoming = {  
+    name: '小明',  
+    birth: 1990,  
+    school: 'No.1 Middle School',  
+    height: 1.70,  
+    weight: 65,  
+    score: null  
+};  
+
+值得一提的是:  
+如果我们要检测xiaoming是否拥有某一属性，可以用in操作符：   
+`'name' in xiaoming; // true   `
+要判断一个属性是否是xiaoming自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法：  
+`xiaoming.hasOwnProperty('name'); // true`  
+
+条件判断if else   
+循环for(i=1;i<10;i++)  
+
+Map  
+Map是一组键值对的结构，具有极快的查找速度  
+>var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);  
+m.get('Michael'); // 95  
+var m = new Map(); // 空Map  
+m.set('Adam', 67); // 添加新的key-value  
+m.set('Bob', 59);  
+m.has('Adam'); // 是否存在key 'Adam': true  
+m.get('Adam'); // 67  
+m.delete('Adam'); // 删除key 'Adam'  
+m.get('Adam'); // undefined   
+
+由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉
+
+Set 储存key的集合，不存储value，重复的元素在set会被自动过滤掉  
+可以add()和delete()
 
 
-
-
-
-
-
-
-
-
+**iterable(遍历)  
+array， map, set通过for...of来遍历  
+还有更好的方法是直接用forEach方法:它接收一个函数，每次迭代就自动回调该函数。    
+>'use strict';    
+var a = ['A', 'B', 'C'];  
+a.forEach(function(element, index, array){  
+//element指向当前元素值    
+//idnex:索引    
+array:array对象本身
+})
 
