@@ -99,3 +99,5 @@ a.forEach(function(element, index, array){
 array:array对象本身
 })
 </pre>
+
+    ssds
