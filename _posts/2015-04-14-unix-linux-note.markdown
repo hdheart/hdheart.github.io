@@ -2,7 +2,7 @@
 layout:     post
 title:      "毕业设计"
 subtitle:   "基于arduino的餐厅服务机器人"
-date:       2019-12-01
+date:       2019-12-01 17:08PM
 author:     "hdh"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
