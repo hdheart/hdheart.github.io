@@ -90,12 +90,11 @@ Set 储存key的集合，不存储value，重复的元素在set会被自动过�
 **iterable(遍历)  
 array， map, set通过for...of来遍历  
 还有更好的方法是直接用forEach方法:它接收一个函数，每次迭代就自动回调该函数。    
-```'use strict';    
+<pre>'use strict';    
 var a = ['A', 'B', 'C'];  
 a.forEach(function(element, index, array){  
 //element指向当前元素值    
 //idnex:索引    
 array:array对象本身
 })
-```
-
+</pre>
