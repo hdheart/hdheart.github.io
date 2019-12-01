@@ -6,7 +6,7 @@ date:       2019-12-01 17:08PM
 author:     "hdh"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
-    - 前端开发
+    - OS
     - Unix
     - Linux
 ---
