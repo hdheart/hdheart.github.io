@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      "想 Post"
-subtitle:   "不适合人类阅读，非常水的自我笔记"
-date:       2015-04-14
-author:     "Hux"
+title:      "毕业设计"
+subtitle:   "基于arduino的餐厅服务机器人"
+date:       2019-12-01
+author:     "hdh"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
     - OS
@@ -11,7 +11,7 @@ tags:
     - Linux
 ---
 
-> This document is not completed and will be updated anytime.
+> 记录完成毕设的过程.
 
 
 ## Catagory
