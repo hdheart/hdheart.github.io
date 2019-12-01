@@ -7,8 +7,8 @@ author:     "hdh"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
     - 毕设
-    - Unix
-    - Linux
+    - 嵌入式
+    - arduino
 ---
 
 > 记录完成毕设的过程.
