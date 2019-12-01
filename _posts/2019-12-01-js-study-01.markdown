@@ -1,0 +1,60 @@
+---
+layout:     post
+title:      "从零开始学习Javascript"
+subtitle:   "为什么要重新学js？不用问，问就是遇到瓶颈了"
+date:       2019-12-01 21:42PM
+author:     "hdh"
+header-img: "img/post-bg-js-version.jpg"
+tags:
+    - 前端开发
+    - JavaScript
+    - 基础
+---
+
+
+**字符串**
+
+这里比较重要的一个是字符串的拼接：
+>var name = '小明';   
+var age = 20;  
+var message = '你好, ' + name + ', 你今年' + age + '岁了!';   
+等于：var message = \`你好, ${name}, 你今年${age}岁了!\`;   
+注意这里用的是反撇号`。 
+
+**操作字符串**  
+toUperCase();  
+toLowerCase();  
+indexOf();  
+substring(0. 5);//索引从0到5；
+
+**数组**  
+
+ indexOf();  
+ slice(0, 3);  
+ push和pop;//pop 抛出  
+ unshift();shift();//头部添加和尾部删除  
+ sort();排序  
+ reverse();  
+ splice: splice()方法是修改Array的“万能方法”，它可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素： 
+ >var arr = ['Microsoft', 'Apple', 'Yahoo', 'AOL', 'Excite', 'Oracle'];  
+ // 从索引2开始删除3个元素,然后再添加两个元素:   
+arr.splice(2, 3, 'Google', 'Facebook');  
+
+concat();  
+>var arr = ['A', 'B', 'C'];
+var added = arr.concat([1, 2, 3]);  
+added; // ['A', 'B', 'C', 1, 2, 3]  
+
+join();//用指定的字符串拼接。join('-');  
+
+
+
+
+
+
+
+
+
+
+
+
