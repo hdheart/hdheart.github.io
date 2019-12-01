@@ -71,7 +71,8 @@ join();//用指定的字符串拼接。join('-');
 
 Map  
 Map是一组键值对的结构，具有极快的查找速度  
-```var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);  
+<pre>  
+var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);  
 m.get('Michael'); // 95  
 var m = new Map(); // 空Map  
 m.set('Adam', 67); // 添加新的key-value  
@@ -80,7 +81,7 @@ m.has('Adam'); // 是否存在key 'Adam': true
 m.get('Adam'); // 67  
 m.delete('Adam'); // 删除key 'Adam'  
 m.get('Adam'); // undefined   
-```
+</pre>
 由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉
 
 Set 储存key的集合，不存储value，重复的元素在set会被自动过滤掉  
