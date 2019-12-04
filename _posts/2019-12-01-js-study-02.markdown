@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "从零开始学习Javascript-01"
+title:      "从零开始学习Javascript-02"
 subtitle:   "为什么要重新学js？不用问，问就是遇到瓶颈了"
 date:       2019-12-04 12.15PM
 author:     "hdh"
