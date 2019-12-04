@@ -1,0 +1,16 @@
+---
+layout:     post
+title:      "Thought"
+subtitle:   "这篇博客主要记录一些一直以来的想法和思绪。"
+date:       2019-12-01 15:01PM
+author:     "hdh"
+header-img: "img/post-bg-js-module.jpg"
+tags:
+    - 想法
+    - 思绪
+---
+
+
+
+## Foreword  
+这篇博客主要记录一些一直以来的想法和思绪。
