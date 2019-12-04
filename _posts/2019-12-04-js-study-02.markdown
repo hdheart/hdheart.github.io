@@ -35,7 +35,7 @@ var abs = function(x){...};
     console.log('arg ' + i + ' = ' +        arguments[i]); // 10, 20, 30
     }
     }foo(10, 20, 30);
-rest参数
+**rest参数**
 
     function foo(a, b, ...rest) {
     console.log('a = ' + a);
@@ -43,7 +43,7 @@ rest参数
     console.log(rest);
     }foo(1, 2, 3, 4, 5);
 
-变量作用域  
+**变量作用域**  
 全局变量会绑定到window上不同的JS文件用了相同的全局变量会产生冲突。这里引入名字空间。就是把所有的变量和函数全部绑定到一个全局变量中：  
 
     // 唯一的全局变量MYAPP:  
@@ -118,7 +118,7 @@ let申明的是块级作用域变量，意思就是：
     
     getAge.apply(xiaoming, []); // 25, this指向xiaoming, 参数为空
 
-**装饰器**
+**装饰器**  
 统计函数的调用次数   
     
     'use strict';
