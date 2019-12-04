@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "从零开始学习Javascript-01"
-subtitle:   "为什么要重新学js？不用问，问就是遇到瓶颈了"
+subtitle:   "字符串、数组、对象"
 date:       2019-12-01 21:42PM
 author:     "hdh"
 header-img: "img/post-bg-js-version.jpg"
