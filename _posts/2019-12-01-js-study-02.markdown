@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "从零开始学习Javascript-02"
-subtitle:   "为什么要重新学js？不用问，问就是遇到瓶颈了"
+subtitle:   "函数、作用域、解构赋值与方法"
 date:       2019-12-04 12.15PM
 author:     "hdh"
 header-img: "img/post-bg-js-version.jpg"
@@ -12,3 +12,126 @@ tags:
 ---
 
 
+**函数的定义**  
+
+    function abs(x) {  
+        if(x>0){  
+            return x;  
+        }else{  
+            return -x;
+        }
+    }  
+这里的function指出函数的定义；abs函数名；x参数，多个参数以‘，’隔开；{...}里面写函数体  
+上面的函数等价于：  
+var abs = function(x){...};  
+
+**arguments**  
+他只在函数内部起作用，并永远指向当前函数调用者传入的所有参数  
+看看这个例子：  
+
+    function foo(x) {
+    console.log('x = ' + x); // 10
+    for (var i=0; i<arguments.length; i++) {
+    console.log('arg ' + i + ' = ' +        arguments[i]); // 10, 20, 30
+    }
+    }foo(10, 20, 30);
+rest参数
+
+    function foo(a, b, ...rest) {
+    console.log('a = ' + a);
+    console.log('b = ' + b);
+    console.log(rest);
+    }foo(1, 2, 3, 4, 5);
+
+变量作用域  
+全局变量会绑定到window上不同的JS文件用了相同的全局变量会产生冲突。这里引入名字空间。就是把所有的变量和函数全部绑定到一个全局变量中：  
+
+    // 唯一的全局变量MYAPP:  
+    var MYAPP = {};  
+    // 其他变量:  
+    MYAPP.name = 'myapp';  
+    MYAPP.version = 1.0;  
+    // 其他函数:  
+    MYAPP.foo = function () {
+    return 'foo';};
+把变量放进MYAPP中，减少了冲突。  
+
+**let和var**
+
+let申明的是块级作用域变量，意思就是：
+
+    { let i = 9;     // i变量只在 花括号内有效！！！}   
+    console.log(i);  // UncaughtReferenceError: i is not defined  
+显而易见块级作用域的意思。  
+
+**const**  
+定义常量，和let一样是块级作用域。一般大写常量
+
+**解构赋值**
+
+什么解构赋值？就是字面意思。如果要 把一个数组里面的元素赋值给几个变量就要：  
+
+    var array = ['hello', 'JavaScript', 'ES6'];
+    var x = array[0];
+    var y = array[1];
+    var z = array[2];
+可以这样解构赋值：
+
+    var [x, y, z] = ['hello', 'JavaScript', 'ES6'];  
+**方法**  
+
+想要动态获得一个人的年龄可以这样写：
+
+    var xiaoming = {
+    name: '小明',
+    birth: 1990,
+    age: function () {
+        var y = new Date().getFullYear();
+        return y - this.birth;
+    }
+    };
+    xiaoming.age; // function xiaoming.age()
+    xiaoming.age(); // 今年调用是25,明年调用就变成26了
+
+**this** 
+
+也可以这样：  
+
+    function getAge() {
+    var y = new Date().getFullYear();
+    return y - this.birth;
+    }
+
+    var xiaoming = {
+        name: '小明',
+        birth: 1990,
+        age: getAge
+    };
+
+    xiaoming.age(); // 25, 正常结果
+    getAge(); // NaN
+
+这里就出现了this，可以很直观的看到this指向的是被调用的birth，但是单独的用，this指向的就是全局，这里getAge()单独用指向了全局就是 window。
+
+怎么解决这个问题呢。这里要引入**APPly**  
+它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
+    
+    getAge.apply(xiaoming, []); // 25, this指向xiaoming, 参数为空
+
+**装饰器**
+统计函数的调用次数   
+    
+    'use strict';
+    var count = 0;
+    var oldParseInt = parseInt; // 保存原函数
+
+    window.parseInt = function () {
+        count += 1;
+        return oldParseInt.apply(null, arguments); // 调用原函数
+    };
+    parseInt('10');
+    parseInt('20');
+    parseInt('30');
+    console.log('count = ' + count); // 3
+
+这里的指向null。我的理解是因为普通函数，不用指向谁。没改变之前函数。在外面做了个装饰器。
