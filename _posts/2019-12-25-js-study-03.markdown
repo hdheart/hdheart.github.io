@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "从零开始学习Javascript-01"
+title:      "从零开始学习Javascript-03"
 subtitle:   "字符串、数组、对象"
-date:       2019-12-01 21:42PM
+date:       2019-12-25 13:42PM
 author:     "hdh"
 header-img: "img/post-bg-js-version.jpg"
 tags:
@@ -12,92 +12,58 @@ tags:
 ---
 
 
-**字符串**
+**高阶函数**（higher-order function）  
 
-这里比较重要的一个是字符串的拼接：
-```var name = '小明';   
-var age = 20;  
-var message = '你好, ' + name + ', 你今年' + age + '岁了!';   
-等于：var message = \`你好, ${name}, 你今年${age}岁了!\`;   
-注意这里用的是反撇号`。
-```
+JS的函数可以指向某个变量。变量可以指向函数，函数的参数可以接受变量，那一个函数就可以接受另一个函数作为参数。从英文的字面意思来看就更复杂排序的函数。更加好理解，就是函数里面有函数的意思。举个简单的例子  
+  
+    function add(x, y, f){  
+        return f(x) + f(y);
+    }
+调用：add(-5, 6, math.abs)  
 
-**操作字符串**  
-toUperCase();  
-toLowerCase();  
-indexOf();  
-substring(0. 5);//索引从0到5；
+    x = -5;
+    y = 6;
+    f = Math.abs;
+    f(x) + f(y) ==> Math.abs(-5) + Math.abs(6) ==> 11;
+    return 11;
+**map**    
+map()定义的是在JS的Array中，调用Array的map()，传入自己的函数，就可以得到新的Array结果。  
 
-**数组**  
+    function pow(x) {
+    return x * x;  
+    }  
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9;
+    var results = arr.map(pow); // [1, 4, 9, 16, 25, 36, 49, 64, 81]
+    console.log(results);
+其实这里就是map函数里面传入一个新的参数（pow函数）。  
 
- indexOf();  
- slice(0, 3);  
- push和pop;//pop 抛出  
- unshift();shift();//头部添加和尾部删除  
- sort();排序  
- reverse();  
- splice: splice()方法是修改Array的“万能方法”，它可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素： 
- ```var arr = ['Microsoft', 'Apple', 'Yahoo', 'AOL', 'Excite', 'Oracle'];  
- // 从索引2开始删除3个元素,然后再添加两个元素:   
-arr.splice(2, 3, 'Google', 'Facebook');  
-```
-concat();  
-```var arr = ['A', 'B', 'C'];
-var added = arr.concat([1, 2, 3]);  
-added; // ['A', 'B', 'C', 1, 2, 3]  
-```
-join();//用指定的字符串拼接。join('-');  
+**reduce**  
+reduce就是把函数作用在array的[x1, x2, x3..]上，这个函数必须接受两个参数然后，reduce的结果和序列下一个参数做累积计算。直观的看：  
 
-**对象**  
-对象大概就是这样一个键值得结构：  
-```var xiaoming = {  
-    name: '小明',  
-    birth: 1990,  
-    school: 'No.1 Middle School',  
-    height: 1.70,  
-    weight: 65,  
-    score: null  
-};
- ``` 
+    [x1, x2, x3, x4].reduce(f) = f(f(f(x1, x2), x3), x4)  
 
-值得一提的是:  
-如果我们要检测xiaoming是否拥有某一属性，可以用in操作符：   
-`'name' in xiaoming; // true   `
-要判断一个属性是否是xiaoming自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法：  
-`xiaoming.hasOwnProperty('name'); // true`  
-
-条件判断if else   
-循环for(i=1;i<10;i++)  
-
-Map  
-Map是一组键值对的结构，具有极快的查找速度  
-<pre>  
-var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);  
-m.get('Michael'); // 95  
-var m = new Map(); // 空Map  
-m.set('Adam', 67); // 添加新的key-value  
-m.set('Bob', 59);  
-m.has('Adam'); // 是否存在key 'Adam': true  
-m.get('Adam'); // 67  
-m.delete('Adam'); // 删除key 'Adam'  
-m.get('Adam'); // undefined   
-</pre>
-由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉
-
-Set 储存key的集合，不存储value，重复的元素在set会被自动过滤掉  
-可以add()和delete()
-
-
-iterable(遍历)  
-array， map, set通过for...of来遍历  
-还有更好的方法是直接用forEach方法:它接收一个函数，每次迭代就自动回调该函数。    
-<pre>'use strict';    
-var a = ['A', 'B', 'C'];  
-a.forEach(function(element, index, array){  
-//element指向当前元素值    
-//idnex:索引    
-array:array对象本身
-})
-</pre>
-
+    var arr = [1, 3, 5, 7, 9];
+    arr.reduce(function (x, y) {
+        return x + y;
+    }); // 25
     
+
+
+**filter**  
+过滤器  
+接收一个函数，根据返回值决定是否保留该元素  
+
+    var arr = [1, 2, 4, 5, 6, 9, 10, 15];
+    var r = arr.filter(function (x) {
+        return x % 2 !== 0;
+    });
+    r; // [1, 5, 9, 15]
+
+**every**  
+用作判断数组的元素是否满足测试条件  
+
+**find/findIndex**  
+find()用于查找符合条件的第一个函数如果找到就返回这个元素，否则返回undefined。。findIndex返回索引，找不到返回-1.  
+
+**forEach**  
+以此传入函数但是不会返回新的数组。常用于遍历数组，传入函数不需要返回值
