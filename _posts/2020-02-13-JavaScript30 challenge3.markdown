@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "JavaScript30"
+title:      "JavaScript30 day3"
 subtitle:   ""
 date:       2020-02-14 21:59PM
 author:     "hdh"
